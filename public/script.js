@@ -20,6 +20,13 @@ socket.on('Welcome',data=>{
     socket.emit('thankyou',[4,5,6]) // this is will send an event to the server 
 })
 
-socket.on('newClient',data=>{
-    console.log('A new client is joined :',data); // this will console to all the browser whenever an new client joins the server 
+document.getElementById('messages-form').addEventListener('submit',e=>{
+    e.preventDefault()
+    const newMessage = document.getElementById('user-message').value
+    document.getElementById('user-message').value = ""
+    socket.emit('messageFromClientToServer',newMessage)
+})
+
+socket.on('messageFromServerToALL',newMessage=>{
+    document.getElementById('messages').innerHTML += `<li>${newMessage}</li>`
 })
