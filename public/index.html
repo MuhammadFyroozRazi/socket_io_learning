@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <script src="/socket.io/socket.io.min.js"></script> 
+    <!-- this file '/socket.io/socket.io.min.js' will be served by the the the socket server, we handover the http server to that  -->
+     <!-- because of this we can access the io object from the client, in script file we can access this io object  -->
     <script src="./script.js"></script>
     <title>socket.io</title>
 </head>
